@@ -10,7 +10,7 @@ interface ICatagory {
 
 const NavigationCatagory = async () => {
   const res = await fetch("https://news-api-v2.vercel.app/api/categories", {
-    cache: "force-cache",
+    next:{revalidate:60}
   });
   const data = await res.json();
   const catagoryData = data.data as ICatagory[];
@@ -26,13 +26,12 @@ const NavigationCatagory = async () => {
         })
         .map((catagory: ICatagory) => {
           return (
-            <span
-              className="hover:text-red-700 cursor-pointer"
-              key={catagory.topicId}
-            >
-              {" "}
-              {catagory.title}
-            </span>
+            <Link key={catagory.topicId} href={`/catagory/${catagory.topicId}`}>
+              <span className="hover:text-red-700 cursor-pointer">
+                {" "}
+                {catagory.title}
+              </span>
+            </Link>
           );
         })}
     </div>

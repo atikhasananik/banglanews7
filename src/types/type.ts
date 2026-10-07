@@ -11,7 +11,7 @@ export interface INewsCard {
   firstPublished: string | null;
   lastPublished: string | null;
   source: string;
-  rank?:number;
+  rank?: number;
 }
 
 export interface IHomeCardSection {
@@ -20,4 +20,15 @@ export interface IHomeCardSection {
   curationType: string;
   link: string | null;
   articles: INewsCard[];
+}
+
+export interface IDetailsProps {
+  type: string;
+  url: string;
+  width: number;
+  height: number;
+  caption: string | null;
+  altText: string;
+  copyrightHolder: string;
+  text: string;
 }

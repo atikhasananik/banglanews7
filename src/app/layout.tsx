@@ -23,7 +23,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-theme="white"
       className={`${bengali.className} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">
+      <body className="overflow-x-hidden">
         <header>
           <nav>
             <Navbar></Navbar>

@@ -1,3 +1,5 @@
+import Link from "next/link";
+import { notFound } from "next/navigation";
 import Marquee from "react-fast-marquee";
 
 interface IMarqueeData {
@@ -7,7 +9,7 @@ interface IMarqueeData {
 
 const MarqueeContent = async () => {
   const res = await fetch("https://news-api-v2.vercel.app/api/news?limit=10", {
-    cache: "force-cache",
+    next: { revalidate: 60 },
   });
   const data = await res.json();
 
@@ -22,13 +24,11 @@ const MarqueeContent = async () => {
         <Marquee speed={100}>
           {marqueeData.map((data) => {
             return (
-              <span
-                className="mx-2 hover:underline hover:cursor-pointer"
-                key={data.id}
-              >
-                {data.title}
-                 ●{" "}
-              </span>
+              <Link key={data.id} href={`/details/${data.id}`}>
+                <span className="mx-2 hover:underline hover:cursor-pointer">
+                  {data.title}●{" "}
+                </span>
+              </Link>
             );
           })}
         </Marquee>

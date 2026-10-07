@@ -19,7 +19,7 @@ const HomeNewsSection = ({ homeCard }: IHomeNewsSectonProps) => {
               <h1 className="font-bold text-2xl border-b-2 py-2 mt-5 border-red-700">
                 {card.title}{" "}
               </h1>
-              <div className="grid grid-cols-3 mt-4 gap-4">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 mt-4 gap-4">
                 {card.articles.map((news) => {
                   return <NewsCard key={news.id} news={news}></NewsCard>;
                 })}
