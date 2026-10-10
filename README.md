@@ -77,3 +77,5 @@ The homepage, category pages, and article pages retrieve content from `https://n
 ## Deployment
 
 Build the application with `npm run build`, then run it with `npm run start`. The project can also be deployed to a Next.js-compatible hosting platform. Configure any required authentication and database environment variables in the hosting provider before enabling those features.
+
+## Live Demo : <a href ="https://banglanews7.vercel.app/">Bangla News 7 - click here</a>
