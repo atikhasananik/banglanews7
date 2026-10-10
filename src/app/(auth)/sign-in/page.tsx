@@ -30,7 +30,7 @@ const SignUp: React.FC = () => {
       <div className="mx-auto w-[384px] max-w-[calc(100%-32px)]">
         {/* Title */}
         <h1 className="mb-[28px] text-center text-[23px] font-bold leading-[1.35] text-[#c90012]">
-          সাইন আপ
+          সাইন ইন
         </h1>
 
         <form onSubmit={handleSubmit}>
