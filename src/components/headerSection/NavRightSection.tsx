@@ -63,7 +63,7 @@ const NavRightSection = () => {
           </span>
 
           <div
-            className={`flex items-center gap-2 justify-end  ${menuCliecked ? "max-sm:bg-white max-sm:border  max-sm:border-gray-300 max-sm:shadow-xl max-sm:p-4 max-sm:w-60 max-sm:rounded-lg max-sm:absolute max-sm:-bottom-27 max-sm:right-0 max-sm:flex-col" : "hidden"} sm:flex `}
+            className={`flex items-center gap-2 justify-end  ${menuCliecked ? "max-sm:bg-white max-sm:border  max-sm:border-gray-300 max-sm:shadow-xl max-sm:p-4 max-sm:w-60 max-sm:rounded-lg max-sm:absolute max-sm:-bottom-27 max-sm:right-0 max-sm:flex-col" : "hidden"} sm:flex max-md:flex-col  `}
           >
             <p className="font-semibold italic text-gray-500 ">
               {session?.user.name.toUpperCase()}{" "}
