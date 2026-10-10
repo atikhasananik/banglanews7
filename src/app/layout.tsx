@@ -3,13 +3,11 @@ import { Noto_Serif_Bengali } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/headerSection/Navbar";
 import MarqueeContent from "@/components/headerSection/MarqueeContent";
+import Footer from "@/components/footer/Footer";
 
 const bengali = Noto_Serif_Bengali({
-
-  subsets: ["latin","bengali"],
+  subsets: ["latin", "bengali"],
 });
-
-
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -31,7 +29,9 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
           <MarqueeContent></MarqueeContent>
         </header>
         <main className="">{children}</main>
-        <footer></footer>
+        <footer>
+          <Footer></Footer>{" "}
+        </footer>
       </body>
     </html>
   );

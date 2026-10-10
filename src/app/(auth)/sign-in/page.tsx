@@ -5,7 +5,14 @@ const SignUp: React.FC = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    // Handle signup here
+    const formData = new FormData(e.currentTarget);
+    const data: Record<string, string> = {};
+    // Convert FormData to plain object
+    formData.forEach((value, key) => {
+      data[key] = value.toString();
+    });
+    
+    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
   };
 
   return (
