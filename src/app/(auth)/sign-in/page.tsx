@@ -1,8 +1,9 @@
 "use client";
+import { signIn } from "@/lib/auth-client";
 import Link from "next/link";
 
 const SignUp: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     const formData = new FormData(e.currentTarget);
@@ -11,8 +12,12 @@ const SignUp: React.FC = () => {
     formData.forEach((value, key) => {
       data[key] = value.toString();
     });
-    
-    alert(`Form submitted with: ${JSON.stringify(data, null, 2)}`);
+
+    const { data: resData, error } = await signIn.email({
+      email: data.email,
+      password: data.password,
+      callbackURL: "/",
+    });
   };
 
   return (

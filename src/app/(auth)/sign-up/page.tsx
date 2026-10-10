@@ -1,12 +1,33 @@
-"use client"
+"use client";
 
+import { signUp } from "@/lib/auth-client";
 import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 const SignUp: React.FC = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const Router = useRouter()
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
     // Handle signup here
+    const formData = new FormData(e.currentTarget);
+    const data: Record<string, string> = {};
+    // Convert FormData to plain object
+    formData.forEach((value, key) => {
+      data[key] = value.toString();
+    });
+
+    const { data: resData, error } = await signUp.email({
+      name: data.name,
+      email: data.email,
+      password: data.password,
+      callbackURL: "/",
+    });
+
+    if(resData) {
+      Router.push('/')
+    }
+    
   };
 
   return (
@@ -35,23 +56,6 @@ const SignUp: React.FC = () => {
             <input
               id="name"
               name="name"
-              type="text"
-              className="block h-[39px] w-full rounded-[4px] border border-[#d2d2d2] bg-white px-[10px] py-[6px] text-[15px] text-[#333] outline-none"
-            />
-          </div>
-
-          {/* Image */}
-          <div className="mb-[15px]">
-            <label
-              htmlFor="image"
-              className="mb-[6px] block text-[14px] font-normal leading-[1.25] text-[#333]"
-            >
-              Image
-            </label>
-
-            <input
-              id="image"
-              name="image"
               type="text"
               className="block h-[39px] w-full rounded-[4px] border border-[#d2d2d2] bg-white px-[10px] py-[6px] text-[15px] text-[#333] outline-none"
             />

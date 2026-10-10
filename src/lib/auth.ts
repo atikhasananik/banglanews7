@@ -8,5 +8,8 @@ const client = new MongoClient(
 const db = client.db("bangla-news-7");
 
 export const auth = betterAuth({
+  emailAndPassword: { 
+    enabled: true, 
+  }, 
   database: mongodbAdapter(db),
 });
