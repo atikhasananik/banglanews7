@@ -21,14 +21,14 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       data-theme="white"
       className={`${bengali.className} h-full antialiased`}
     >
-      <body className="overflow-x-hidden">
+      <body >
         <header>
           <nav>
             <Navbar></Navbar>
           </nav>
           <MarqueeContent></MarqueeContent>
         </header>
-        <main className="">{children}</main>
+        <main className="w-full min-w-0">{children}</main>
         <footer>
           <Footer></Footer>{" "}
         </footer>

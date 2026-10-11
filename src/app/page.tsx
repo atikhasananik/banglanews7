@@ -14,15 +14,15 @@ const HomePage = async () => {
   const [firstArticles, ...otherArticles] = firstData.articles as INewsCard[];
 
   return (
-    <div className="grid grid-cols-2  px-2.5 w-full mt-4 gap-5 max-w-7xl mx-auto lg:grid-cols-3">
+    <div className="mx-auto mt-4 grid w-full max-w-7xl grid-cols-1 gap-4 px-2.5 sm:gap-5 lg:grid-cols-3">
       {/* letf section  */}
-      <div className="col-span-2">
-        <div className=" flex flex-col lg:flex-row gap-5">
-          <div>
+      <div className="min-w-0 lg:col-span-2">
+        <div className="flex min-w-0 flex-col gap-5 lg:flex-row">
+          <div className="min-w-0 flex-1">
             <NewsCard news={firstArticles}></NewsCard>
           </div>
-          <div>
-            <div className="border min-w-90 border-gray-200 rounded-2xl overflow-hidden h-full">
+          <div className="min-w-0 lg:w-90">
+            <div className="h-full w-full overflow-hidden rounded-2xl border border-gray-200">
               {otherArticles.slice(0, 4).map((articlesData) => {
                 return (
                   <Link
@@ -30,7 +30,9 @@ const HomePage = async () => {
                     key={articlesData.id}
                   >
                     <div className="p-3 py-4 w-full border-t border-gray-200">
-                      <h1 className="text-red-600">{articlesData.category}</h1>
+                      <h1 className="text-red-600">
+                        {articlesData.category}
+                      </h1>
                       <p className="font-bold">{articlesData.title}</p>
                     </div>
                   </Link>
@@ -43,7 +45,7 @@ const HomePage = async () => {
       </div>
 
       {/* right section  */}
-      <div className="lg:col-span-1  col-span-2 ">
+      <div className="min-w-0 lg:col-span-1">
         <MostReadSection></MostReadSection>
       </div>
     </div>

@@ -1,5 +1,4 @@
 import Link from "next/link";
-import { notFound } from "next/navigation";
 import Marquee from "react-fast-marquee";
 
 interface IMarqueeData {
@@ -17,11 +16,11 @@ const MarqueeContent = async () => {
 
   return (
     <div className="flex gap-2 my-3  text-white text-sm bg-red-700">
-      <div className="max-w-7xl mx-auto flex items-center ">
+      <div className="mx-auto flex w-full min-w-0 max-w-7xl items-center">
         <span className="bg-red-900 text-white p-1.5 px-3 font-bold">
           সর্বশেষ
         </span>
-        <Marquee speed={100}>
+        <Marquee className="min-w-0 flex-1" speed={100}>
           {marqueeData.map((data) => {
             return (
               <Link key={data.id} href={`/details/${data.id}`}>
